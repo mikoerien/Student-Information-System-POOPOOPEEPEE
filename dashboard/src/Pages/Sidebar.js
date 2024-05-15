@@ -16,35 +16,44 @@ function Sidebar() {
     window.location.href = "/";
   }
 
+function EmailorID(){
+    if(localStorage = 'email'){
+
+    }
+    else if(localStorage = 'id'){
+
+    };
+}
+  
   return (
     <div className="sidebar">
       <ul>
         <li>
-          <Link to="/dashboard">
+          <Link to="/dashboard" pointerEvents: storedData === 'id' ? 'none' : 'auto', opacity: storedData === 'id' ? '0.5' : '1>
             <HomeIcon /> Home
           </Link>
         </li>
 
         <li>
-          <Link to="/addstudent">
+          <Link to="/addstudent" pointerEvents: storedData === 'id' ? 'none' : 'auto', opacity: storedData === 'id' ? '0.5' : '1>
             <PersonAddIcon /> Add Student
           </Link>
         </li>
 
         <li>
-          <Link to="/viewstudent">
+          <Link to="/viewstudent" pointerEvents: storedData === 'id' ? 'none' : 'auto', opacity: storedData === 'id' ? '0.5' : '1>
             <PersonOutlineIcon /> View Student
           </Link>
         </li>
 
         <li>
-          <Link to="/viewusers">
+          <Link to="/viewusers" pointerEvents: storedData === 'id' ? 'none' : 'auto', opacity: storedData === 'id' ? '0.5' : '1>
             <AccountBoxIcon /> View Users
           </Link>
         </li>
 
         <li>
-          <Link to="/managestudent">
+          <Link to="/managestudent" pointerEvents: storedData === 'id' ? 'none' : 'auto', opacity: storedData === 'id' ? '0.5' : '1>
             <GroupIcon /> Manage Student
           </Link>
         </li>
