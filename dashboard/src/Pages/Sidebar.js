@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonAddIcon from '@mui/icons-material/PersonAdd'; 
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -9,6 +9,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import '../Pages/Sidebar.css';
 
 function Sidebar() {
+  const location = useLocation();
 
   function handleLogout() {
     localStorage.removeItem('email');
@@ -16,57 +17,46 @@ function Sidebar() {
     window.location.href = "/";
   }
 
-function EmailorID(){
-    if(localStorage = 'email'){
+  function isStudentPage() {
+    return location.pathname === '/Student';
+  }
 
-    }
-    else if(localStorage = 'id'){
-
-    };
-}
-  
   return (
     <div className="sidebar">
       <ul>
-        <li>
-          <Link to="/dashboard" pointerEvents: storedData === 'id' ? 'none' : 'auto', opacity: storedData === 'id' ? '0.5' : '1>
+        <li className={isStudentPage() ? "disabled-link" : ""}>
+          <Link to="/dashboard">
             <HomeIcon /> Home
           </Link>
         </li>
-
-        <li>
-          <Link to="/addstudent" pointerEvents: storedData === 'id' ? 'none' : 'auto', opacity: storedData === 'id' ? '0.5' : '1>
+        <li className={isStudentPage() ? "disabled-link" : ""}>
+          <Link to="/addstudent">
             <PersonAddIcon /> Add Student
           </Link>
         </li>
-
-        <li>
-          <Link to="/viewstudent" pointerEvents: storedData === 'id' ? 'none' : 'auto', opacity: storedData === 'id' ? '0.5' : '1>
+        <li className={isStudentPage() ? "disabled-link" : ""}>
+          <Link to="/viewstudent">
             <PersonOutlineIcon /> View Student
           </Link>
         </li>
-
-        <li>
-          <Link to="/viewusers" pointerEvents: storedData === 'id' ? 'none' : 'auto', opacity: storedData === 'id' ? '0.5' : '1>
+        <li className={isStudentPage() ? "disabled-link" : ""}>
+          <Link to="/viewusers">
             <AccountBoxIcon /> View Users
           </Link>
         </li>
-
-        <li>
-          <Link to="/managestudent" pointerEvents: storedData === 'id' ? 'none' : 'auto', opacity: storedData === 'id' ? '0.5' : '1>
+        <li className={isStudentPage() ? "disabled-link" : ""}>
+          <Link to="/managestudent">
             <GroupIcon /> Manage Student
           </Link>
         </li>
-
         <li className="logout" onClick={handleLogout}>
-        <Link to="/dashboard">
-        <span><LogoutIcon /></span> Logout
+          <Link to="#">
+            <span><LogoutIcon /></span> Logout
           </Link>
         </li>
       </ul>
     </div>
   );
-};
+}
 
 export default Sidebar;
-
